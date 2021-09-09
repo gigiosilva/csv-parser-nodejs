@@ -13,6 +13,7 @@ class CarController {
     try {
       const { provider } = req.body;
       if (!provider) return res.status(400).json({ error: 'Provider is missing' });
+      if (!req.file) return res.status(400).json({ error: 'File is missing' });
 
       CarService.parseAndInsertCsv(req.file, provider);
       return res.status(200).json({

@@ -1,6 +1,6 @@
-import csv from 'csv-parser';
-import fs from 'fs';
-import fsExtra from 'fs-extra';
+import csv from 'csvtojson';
+import { Readable } from 'stream';
+import dayjs from 'dayjs';
 import { getRepository, Repository } from 'typeorm';
 import { Car } from '@models/Car';
 import { CarPage } from '@models/CarPage';
@@ -31,18 +31,24 @@ class CarService {
   async parseAndInsertCsv(file, provider: string, separator?: string) {
     const carRepository: Repository<Car> = getRepository(Car);
 
-    fs.createReadStream(file.path)
-      .pipe(csv({
-        separator: separator || ';',
-      }))
-      .on('data', async (data) => {
+    const readableStream = Readable.from(file.buffer.toString());
+    const startDate = dayjs();
+    let total = 0;
+
+    csv({
+      delimiter: separator || ';',
+    })
+      .fromStream(readableStream)
+      .subscribe((data, n) => {
         data = Helper.lowerObjKeys(data);
         data = CarValidator.validateObject(data);
         data.provider = provider;
         carRepository.save(data);
-      })
-      .on('end', () => {
-        fsExtra.emptyDirSync('uploads');
+        total = n;
+      }, () => {}, () => {
+        console.log('File processing done!');
+        console.log('Total lines processed:', total);
+        console.log('Time to process:', `${dayjs().diff(startDate, 'millisecond')}ms`);
 
         // Here we can add a logic to inform the end of file processing (webhook, socketio, etc)
       });

@@ -2,7 +2,9 @@ import { Router } from 'express';
 import multer from 'multer';
 import CarController from '@controllers/CarController';
 
-const upload = multer({ dest: 'uploads/' });
+const upload = multer({
+  storage: multer.memoryStorage(),
+});
 
 const router: Router = Router();
 

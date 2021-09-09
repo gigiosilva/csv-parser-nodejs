@@ -80,6 +80,13 @@ describe('** CAR ROUTES **', () => {
         .expect(400, { error: 'Provider is missing' });
     });
 
+    it('should fail by missing file', async () => {
+      await supertest(Server.app)
+        .post('/api/cars')
+        .field('provider', 'Teste Provider')
+        .expect(400, { error: 'File is missing' });
+    });
+
     it('should fail on data saving', async () => {
       CarService.parseAndInsertCsv = jest.fn().mockImplementation(() => {
         throw new Error();
