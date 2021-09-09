@@ -3,6 +3,8 @@ import { compilerOptions } from './tsconfig.json';
 
 export default {
   clearMocks: true,
+  resetMocks: true,
+  restoreMocks: true,
   collectCoverage: true,
   moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths, { prefix: '<rootDir>' }),
   preset: 'ts-jest',

@@ -24,8 +24,9 @@
       "@routes/*": ["./src/routes/*"],
       "@services/*": ["src/services/*"],
       "@config/*": ["./src/config/*"],
-      "@middlewares/*": ["./src/middlewares/*"],
-      "@tests/*": ["./src/tests/*"]
+      "@shared/*": ["./src/shared/*"],
+      "@tests/*": ["./src/tests/*"],
+      "@validators/*": ["./src/validators/*"]
     }
   },
   "include": [
