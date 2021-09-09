@@ -8,53 +8,53 @@ export class Car {
   @Column('varchar', {
     nullable: true,
   })
-  vin: string;
+  vin?: string;
 
   @Column('varchar', {
     nullable: true,
   })
-  make: string;
+  make?: string;
 
   @Column('varchar', {
     nullable: true,
   })
-  model: string;
+  model?: string;
 
   @Column('varchar', {
     nullable: true,
   })
-  mileage: string;
+  mileage?: string;
 
   @Column('varchar', {
     nullable: true,
   })
-  year: string;
+  year?: string;
 
   @Column('varchar', {
     nullable: true,
   })
-  price: string;
+  price?: string;
 
   @Column('varchar', {
     name: 'zip_code',
     nullable: true,
   })
-  zipCode: string;
+  zipCode?: string;
 
   @Column('varchar', {
     nullable: true,
   })
-  provider: string;
+  provider?: string;
 
   @CreateDateColumn({
     type: 'datetime',
     name: 'created_at',
   })
-	createdAt: Date;
+	createdAt?: Date;
 
   @UpdateDateColumn({
     type: 'datetime',
     name: 'updated_at',
   })
-	updatedAt: Date;
+	updatedAt?: Date;
 }

@@ -5,7 +5,7 @@ class FileHandler {
   async parseCsv(file, separator?: string) {
     return new Promise((r) => {
       const results: Object[] = [];
-      fs.createReadStream(file.path || file.Body)
+      fs.createReadStream(file.path)
         .pipe(csv({
           separator: separator || ';',
         }))

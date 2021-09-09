@@ -7,7 +7,8 @@
     "start": "node dist/server.js",
     "dev": "ts-node-dev -r tsconfig-paths/register --poll --respawn --transpile-only --ignore-watch node_modules --no-notify src/server.ts",
     "build": "tsc --project tsconfig.json && tscpaths -p tsconfig.json -s ./src -o ./dist",
-    "test": "jest --coverage --verbose --silent --detectOpenHandles --forceExit",
+    "test": "jest --coverage --verbose --silent --forceExit",
+    "test:debug": "jest --forceExit",
     "test:coverage": "jest --silent --coverageReporters='text-summary'"
   },
   "husky": {
@@ -27,7 +28,9 @@
     "express": "^4.17.1",
     "express-async-errors": "^3.1.1",
     "form-data": "^4.0.0",
+    "fs-extra": "^10.0.0",
     "jest-mock-extended": "^2.0.2-beta2",
+    "jest-when": "^3.3.1",
     "joi": "^17.4.2",
     "mockdate": "^3.0.5",
     "multer": "^1.4.3",
