@@ -1,0 +1,11 @@
+.idea/
+node_modules/
+dist/
+tmp/
+temp/
+uploads/
+downloads/
+coverage/
+yarn-error.log
+.env
+.prettierrc

@@ -1,0 +1,24 @@
+### GET CAR
+GET http://localhost:3000/api/cars
+
+### ADD CAR
+POST http://localhost:3000/api/cars
+content-type: application/json
+
+[
+  {
+    "vin": "sada546a54s",
+    "make": "honda1",
+    "model": "civic",
+    "mileage": "25 kmpl",
+    "year": "2021",
+    "price": "string",
+    "zipCode": "99950",
+    "provider1": "Sunset"
+  },
+  {
+    "vin": "sada546a54s",
+    "make": "honda4",
+    "teste": "civic"
+  }
+]
