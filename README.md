@@ -26,7 +26,7 @@ PORT=3000
 - Accept less columns than the standard layout
 - Accept more columns than the standard layout but ignore the extras
 - Process small and huge files
-- Accept only CVS files
+- Accept only CSV files
 
 ## Assumptions
 
