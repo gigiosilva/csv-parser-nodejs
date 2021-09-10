@@ -1,5 +1,5 @@
 {
-  "name": "csv-parse-nodejs",
+  "name": "csv-parser-nodejs",
   "version": "1.0.0",
   "main": "server.ts",
   "license": "MIT",
