@@ -87,6 +87,14 @@ describe('** CAR ROUTES **', () => {
         .expect(400, { error: 'File is missing' });
     });
 
+    it('should only accept CSV file', async () => {
+      await supertest(Server.app)
+        .post('/api/cars')
+        .field('provider', 'Teste Provider')
+        .attach('data', `${__dirname}/mocks/wrong_file.pdf`)
+        .expect(500, { error: 'Only CSV files are allowed' });
+    });
+
     it('should fail on data saving', async () => {
       CarService.parseAndInsertCsv = jest.fn().mockImplementation(() => {
         throw new Error();

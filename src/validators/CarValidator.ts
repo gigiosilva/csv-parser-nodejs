@@ -10,7 +10,7 @@ class CarValidator {
       mileage: Joi.string(),
       year: Joi.string(),
       price: Joi.string(),
-      zipCode: Joi.string(),
+      zipcode: Joi.string(),
       provider: Joi.string(),
     });
 

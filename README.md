@@ -26,12 +26,14 @@ PORT=3000
 - Accept less columns than the standard layout
 - Accept more columns than the standard layout but ignore the extras
 - Process small and huge files
+- Accept only CVS files
 
 ## Assumptions
 
 - Columns UUID, Created Date and Updated Date should be internal
 - Asynchronous processing in order only to store data, no need to inform the end of processing externally
 - Provider name is required
+- File is required
 
 # Solution
 
@@ -69,6 +71,11 @@ provider | STRING | YES | A provider name
 GET /cars
 ```
 
+Name | Type | Required | Example
+------------ | ------------ | ------------ | ------------
+page | INTEGER | NO | e.g. 1
+pageSize | INTEGER | NO | e.g. 20
+
 **Response Sample:**
 ```json
 {
@@ -85,7 +92,7 @@ GET /cars
           "mileage": "26 kmpl",
           "year": "2021",
           "price": "$56.000",
-          "zipCode": null,
+          "zipCode": "99951",
           "provider": "Sunset",
           "createdAt": "2021-09-10T11:28:08.000Z",
           "updatedAt": "2021-09-10T11:28:08.000Z"

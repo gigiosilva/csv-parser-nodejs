@@ -39,7 +39,7 @@ export class Car {
     name: 'zip_code',
     nullable: true,
   })
-  zipCode?: string;
+  zipcode?: string;
 
   @Column('varchar', {
     nullable: true,

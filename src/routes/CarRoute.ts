@@ -4,6 +4,9 @@ import CarController from '@controllers/CarController';
 
 const upload = multer({
   storage: multer.memoryStorage(),
+  fileFilter(req, file, cb) {
+    file.mimetype === 'text/csv' ? cb(null, true) : cb(new Error('Only CSV files are allowed'));
+  },
 });
 
 const router: Router = Router();
